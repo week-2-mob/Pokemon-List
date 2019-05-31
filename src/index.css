@@ -1,0 +1,27 @@
+/* @font-face {
+    font-family: pokemon;
+    src: url('../assets/Pokemon\ Solid.ttf');
+} */
+
+html { 
+    background-image: url('../assets/pokemon.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;
+}
+
+body {
+    text-align: center;
+    margin: auto;
+}
+
+main {
+    position: relative;
+}
+
+h1 {
+    color: yellow;
+    font-size: 2.5em;
+}
+
