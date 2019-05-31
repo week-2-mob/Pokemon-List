@@ -31,9 +31,10 @@ class App extends Component {
             
             loading.update({ loading: true });
             pokemonApi.getPokemon(queryProps)
-                .then(pokemons => {
-                    pokemonList.update({ pokemons });
-                    paging.update();
+                .then(response => {
+                    pokemonList.update({ pokemons: response.results });
+                    const totalCount = response.count;
+                    paging.update({ totalCount });
                 })
                 .catch(err => {
                     console.log(err);
