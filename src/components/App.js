@@ -19,9 +19,9 @@ class App extends Component {
         dom.insertBefore(headerDom, main);
 
         const search = new Search();
-        main.appendChild(search.render())
+        main.appendChild(search.render());
 
-        const paging = new Paging({ totalCount: 0 });
+        const paging = new Paging({ totalCount: 1 });
         main.appendChild(paging.render());
 
         const pokemonList = new PokemonList({ pokemons: [] });

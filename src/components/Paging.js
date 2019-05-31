@@ -39,12 +39,16 @@ class Paging extends Component {
         const currentPage = getCurrentPage();
         const perPage = 20;
         const totalCount = this.props.totalCount;
+        console.log(totalCount, 'hello0');
 
-        // if(!totalCount) {
-        //     return /*html*/`
-        //     <p>No results, try another search</p>
-        //     `;
-        // }
+        if(!totalCount) {
+            setTimeout(() => {
+                window.location = './';
+            }, 4000);
+            return /*html*/`
+                <p>No results, try another search</p>
+            `;
+        }
 
         const lastPage = Math.ceil(totalCount / perPage);
         return /*html*/ `
