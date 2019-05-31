@@ -36,11 +36,22 @@ class Paging extends Component {
     }
 
     renderTemplate() {
+        const currentPage = getCurrentPage();
+        const perPage = 20;
+        const totalCount = this.props.totalCount;
+
+        // if(!totalCount) {
+        //     return /*html*/`
+        //     <p>No results, try another search</p>
+        //     `;
+        // }
+
+        const lastPage = Math.ceil(totalCount / perPage);
         return /*html*/ `
             <p class="paging">
-                <button class="prev">⇦</button>
-                <span>page x of y</span>
-                <button class="next">⇨</button>
+                <button class="prev" ${currentPage === 1 ? 'disabled' : '' }>⇦</button>
+                <span>page ${currentPage} of ${lastPage}</span>
+                <button class="next" ${currentPage === lastPage ? 'disabled' : ''}>⇨</button>
             </p>
         `;
     }

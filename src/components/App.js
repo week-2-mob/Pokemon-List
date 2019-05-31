@@ -17,7 +17,7 @@ class App extends Component {
         const main = dom.querySelector('main');
         dom.insertBefore(headerDom, main);
 
-        const paging = new Paging();
+        const paging = new Paging({ totalCount: 0 });
         main.appendChild(paging.render());
 
         const pokemonList = new PokemonList({ pokemons: [] });
@@ -27,10 +27,12 @@ class App extends Component {
         main.appendChild(loading.render());
 
         function loadPokemon() {
-
+            const queryProps = hashStorage.get();
+            
             loading.update({ loading: true });
-            pokemonApi.getPokemon()
+            pokemonApi.getPokemon(queryProps)
                 .then(pokemons => {
+                    console.log(pokemons);
                     pokemonList.update({ pokemons });
                     paging.update();
                 })
@@ -43,7 +45,7 @@ class App extends Component {
         }
         loadPokemon();
 
-        window.addEventListener('haschange', () => {
+        window.addEventListener('hashchange', () => {
             loadPokemon();
         });
 
