@@ -4,6 +4,7 @@ import PokemonList from './PokemonList.js';
 import pokemonApi from '../services/pokemon-api.js';
 import Loading from './Loading.js';
 import Paging from './Paging.js';
+import hashStorage from '../services/hash-storage.js';
 
 class App extends Component {
     
@@ -31,6 +32,7 @@ class App extends Component {
             pokemonApi.getPokemon()
                 .then(pokemons => {
                     pokemonList.update({ pokemons });
+                    paging.update();
                 })
                 .catch(err => {
                     console.log(err);
