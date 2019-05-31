@@ -5,6 +5,7 @@ import pokemonApi from '../services/pokemon-api.js';
 import Loading from './Loading.js';
 import Paging from './Paging.js';
 import hashStorage from '../services/hash-storage.js';
+import Search from './Search.js';
 
 class App extends Component {
     
@@ -16,6 +17,9 @@ class App extends Component {
 
         const main = dom.querySelector('main');
         dom.insertBefore(headerDom, main);
+
+        const search = new Search();
+        main.appendChild(search.render());
 
         const paging = new Paging({ totalCount: 0 });
         main.appendChild(paging.render());
