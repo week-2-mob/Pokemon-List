@@ -8,12 +8,12 @@ function getCurrentPage() {
 }
 
 class Paging extends Component {
-
+    
     render() {
         const dom = this.renderDOM();
         const prevButton = dom.querySelector('.prev');
         const nextButton = dom.querySelector('.next');
-
+        
         if(!prevButton) {
             return dom;
         }
@@ -23,23 +23,22 @@ class Paging extends Component {
             page += change;
             hashStorage.set({ page });
         }
-
+        
         prevButton.addEventListener('click', () => {
             updatePage(-1);
         });
-
+        
         nextButton.addEventListener('click', () => {
             updatePage(1);
         });
-
+        
         return dom;
     }
-
+    
     renderTemplate() {
         const currentPage = getCurrentPage();
         const perPage = 20;
         const totalCount = this.props.totalCount;
-        console.log(totalCount, 'hello0');
 
         if(!totalCount) {
             setTimeout(() => {

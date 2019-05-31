@@ -34,7 +34,7 @@ class Search extends Component {
         return /*html*/`
             <form class="search">
                 <input name="search" placeholder="search Pokemon">
-                <button>Search</button>
+                <button class="submit">Search</button>
             </form>
             `;
     }
