@@ -32,7 +32,6 @@ class App extends Component {
             loading.update({ loading: true });
             pokemonApi.getPokemon(queryProps)
                 .then(pokemons => {
-                    console.log(pokemons);
                     pokemonList.update({ pokemons });
                     paging.update();
                 })
@@ -43,6 +42,7 @@ class App extends Component {
                     loading.update({ loading: false });
                 });
         }
+        
         loadPokemon();
 
         window.addEventListener('hashchange', () => {
