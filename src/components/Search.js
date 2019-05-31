@@ -33,7 +33,7 @@ class Search extends Component {
     renderTemplate() {
         return /*html*/`
             <form class="search">
-                <input name="search" placeholder="search Pokemon">
+                <input name="search" placeholder="Search Pokemons">
                 <button class="submit">Search</button>
             </form>
             `;
